@@ -1,0 +1,16 @@
+remote_write:
+  - url: https://aps-workspaces.us-east-1.amazonaws.com/workspaces/ws-0c2d6f70-1f88-4e82-a54e-8837b3f6d9d5/api/v1/remote_write
+    sigv4:
+      region: us-east-1
+global:
+  scrape_interval:     30s
+  evaluation_interval: 30s
+  scrape_timeout: 30s
+
+scrape_configs:
+  - job_name: "imgproxy2"
+    dns_sd_configs:
+      - names:
+          - 'worker-metrics.prometheus'
+        type: 'A'
+        port: 8090
